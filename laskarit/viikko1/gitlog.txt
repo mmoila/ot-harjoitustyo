@@ -1,0 +1,103 @@
+commit ec14fb24aabd9b6c0c2bfb17eec6e11f871f30e2
+Author: Mikael Moilanen <mikael.moilanen@gmail.com>
+Date:   Sun Oct 24 17:29:20 2021 +0300
+
+    poista file1 ja nimeä file2 uudelleen
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 4d382264c8271ba7ae60df872d9a79e54e4cb946
+Author: Mikael Moilanen <mikael.moilanen@gmail.com>
+Date:   Sun Oct 24 17:24:52 2021 +0300
+
+    lisaa uusia tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit b223b9703ac6fad06bdf3f1be7d282a946440512
+Author: Mikael Moilanen <mikael.moilanen@gmail.com>
+Date:   Sun Oct 24 17:17:06 2021 +0300
+
+    muokkaa molempia tiedostoja
+
+ eka.txt          | 1 +
+ stuff/kolmas.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 1562e6c473c3a2c9325cf663b98e0e1375520776
+Author: Mikael Moilanen <mikael.moilanen@gmail.com>
+Date:   Sun Oct 24 15:47:44 2021 +0300
+
+    nimeä tiedosto.txt uudelleen
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 39a8a67262c48df5c28b430298c563e3e25b0ae3
+Author: Mikael Moilanen <mikael.moilanen@gmail.com>
+Date:   Sun Oct 24 15:46:33 2021 +0300
+
+    poista toinen.txt
+
+ toinen.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 69712d48fc435e137f923fc6b13030d85af59a70
+Author: Mikael Moilanen <mikael.moilanen@gmail.com>
+Date:   Sun Oct 24 15:42:32 2021 +0300
+
+    muuta tiedosto
+
+ tiedosto.txt | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit 97b00f00ce64a0670d0041ecde8df6c5f770c733
+Author: Mikael Moilanen <mikael.moilanen@gmail.com>
+Date:   Sun Oct 24 15:41:47 2021 +0300
+
+    muuta tiedosto
+
+ tiedosto.txt | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit e88a545035f65049c9ee7b21eb7eb92d6d40fc5f
+Author: Mikael Moilanen <mikael.moilanen@gmail.com>
+Date:   Sun Oct 24 15:36:27 2021 +0300
+
+    siirrä kolmas stuffiin
+
+ kolmas.txt => stuff/kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b304e800a532f739f6cd78828db1a46bf8c8543e
+Author: Mikael Moilanen <mikael.moilanen@gmail.com>
+Date:   Sun Oct 24 15:34:07 2021 +0300
+
+    lisaa loput
+
+ kolmas.txt | 0
+ toinen.txt | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 72aa5896e1a0fa8dc42e0e45f9e3549893368734
+Author: Mikael Moilanen <mikael.moilanen@gmail.com>
+Date:   Sun Oct 24 15:31:27 2021 +0300
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 41f1b8b1973e7688eb05d1feb9e04e9024650fa7
+Author: Mikael Moilanen <mikael.moilanen@gmail.com>
+Date:   Sun Oct 24 15:30:05 2021 +0300
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
