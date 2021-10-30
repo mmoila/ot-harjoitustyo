@@ -1,3 +1,5 @@
+Gitlog for week1:
+
 commit ec14fb24aabd9b6c0c2bfb17eec6e11f871f30e2
 Author: Mikael Moilanen <mikael.moilanen@gmail.com>
 Date:   Sun Oct 24 17:29:20 2021 +0300
