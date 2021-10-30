@@ -1,4 +1,4 @@
-# Readme for markdown training
+# Software development methods - project
 
 This is a first version of my ot-21 **project**.
 Testing *italic* text. 
