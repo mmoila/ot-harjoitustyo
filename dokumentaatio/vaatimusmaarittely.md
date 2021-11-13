@@ -27,3 +27,7 @@ Sovelluksen avulla käyttäjä voi seurata arjen tuloja ja menoja sekä suunnite
 - Sovellus näyttää käyttäjälle menojen ja tulojen erotuksen
 - Käyttäjä voi kirjautua ulos sovelluksesta
 
+### Jatkokehitysmahdollisuuksia
+
+- Käyttäjä voi luokitella tuloja ja menoja
+  - Ohjelma näyttää luokitteluiden mukaisen jakauman graafisesti
