@@ -1,0 +1,16 @@
+[Monopoli]-1[pelilauta]
+[Monopoli]-2[nopat]
+[Monopoli]-8[pelinappula]
+[Monopoli]-2..8[pelaaja]
+[pelaaja]-.->[nopat]
+[pelaaja]- 1[pelinappula]
+[pelilauta]1-40[peliruutu]
+
+[pelinappula]-.->[peliruutu]
+[peliruutu]-[note: seuraava tiedossa]
+
+[peliruutu]^[aloitusruutu]
+[peliruutu]^[vankila]
+[peliruutu]^[sattuma/yhteismaa]
+[peliruutu]^[asemat ja laitokset]
+[peliruutu]^[kadut]
