@@ -6,3 +6,10 @@
 /laskarit/viikko2/unicafe/htmlcov
 
 /data/database.sqlite
+
+src/__pycache__/
+src/entities/__pycache__/
+src/repositories/__pycache__/
+src/services/__pycache__/
+src/tests/__pycache__/
+src/ui/__pycache__/
