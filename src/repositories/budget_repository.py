@@ -1,11 +1,13 @@
 from database_connection import get_database_connection
 from entities.budget import Budget
 
+
 def get_budgets_by_rows(row):
     return Budget(row["name"], row["id"]) if row else None
 
+
 class BudgetRepository:
-    def __init__(self, connection): 
+    def __init__(self, connection):
         self.conn = connection
 
     def create_budget(self, budget):
@@ -53,14 +55,16 @@ class BudgetRepository:
         sql = "INSERT INTO cash_flow (description, count, is_income, budget_id)\
             VALUES (:description, :count, 1, :budget_id);"
         cursor = self.conn.cursor()
-        cursor.execute(sql, {"description": description, "count": count, "budget_id": budget_id})
+        cursor.execute(sql, {"description": description,
+                       "count": count, "budget_id": budget_id})
         self.conn.commit()
 
     def add_expense(self, description, count, budget_id):
         sql = "INSERT INTO cash_flow (description, count, is_income, budget_id)\
             VALUES (:description, :count, 0, :budget_id);"
         cursor = self.conn.cursor()
-        cursor.execute(sql, {"description": description, "count": count, "budget_id": budget_id})
+        cursor.execute(sql, {"description": description,
+                       "count": count, "budget_id": budget_id})
         self.conn.commit()
 
     def delete_cash_flow(self, id, is_income):

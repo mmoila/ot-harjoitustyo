@@ -13,7 +13,6 @@ class BudgetView:
         self.__expense_tree = None
         self.__initialize()
 
-
     def __initialize(self):
         self.__initialize_frame()
         self.__initialize_income_list()
@@ -29,18 +28,20 @@ class BudgetView:
         self.__frame.pack()
 
     def __initialize_income_list(self):
-        self.__income_tree = ttk.Treeview(self.__frame, columns=("id", "Description", "Amount"), show="")
+        self.__income_tree = ttk.Treeview(
+            self.__frame, columns=("id", "Description", "Amount"), show="")
 
-        for income in self.__budget.income:    
+        for income in self.__budget.income:
             self.__income_tree.insert("", "end", values=income)
 
         self.__income_tree["displaycolumns"] = ("Description", "Amount")
-        self.__income_tree.pack(fill=constants.X, pady=(25,0))
-        
-    def __initialize_expenses_list(self):
-        self.__expense_tree = ttk.Treeview(self.__frame, columns=("id", "Description", "Amount"), show="")
+        self.__income_tree.pack(fill=constants.X, pady=(25, 0))
 
-        for expense in self.__budget.expenses:    
+    def __initialize_expenses_list(self):
+        self.__expense_tree = ttk.Treeview(
+            self.__frame, columns=("id", "Description", "Amount"), show="")
+
+        for expense in self.__budget.expenses:
             self.__expense_tree.insert("", "end", values=expense)
 
         self.__expense_tree["displaycolumns"] = ("Description", "Amount")
@@ -53,10 +54,10 @@ class BudgetView:
         amount = ttk.Entry(container, width=10)
         button = ttk.Button(container, text="Add new",
                             command=lambda: self.__add_income(description.get(),
-                            amount.get(), self.__budget))
+                                                              amount.get(), self.__budget))
         delete_button = ttk.Button(container, text="Delete selection",
                                    command=lambda: self.__delete_income())
-       
+
         container.pack(padx=5, pady=5)
         label.grid(row=0, column=0, padx=5)
         description.grid(row=0, column=1)
@@ -71,9 +72,9 @@ class BudgetView:
         amount = ttk.Entry(container, width=10)
         button = ttk.Button(container, text="Add new",
                             command=lambda: self.__add_expense(description.get(),
-                            amount.get(), self.__budget))
+                                                               amount.get(), self.__budget))
         delete_button = ttk.Button(container, text="Delete selection",
-                                   command=lambda: self.__delete_expense())       
+                                   command=lambda: self.__delete_expense())
 
         container.pack(padx=5, pady=5)
         label.grid(row=0, column=0, padx=5)
@@ -84,10 +85,11 @@ class BudgetView:
 
     def __initialize_budget_balance(self):
         balance = self.__budget.get_balance()
-        label = ttk.Label(self.__frame, text=f"Budget balance: {balance} €", font="bold")
-        
+        label = ttk.Label(
+            self.__frame, text=f"Budget balance: {balance} €", font="bold")
+
         label.pack(pady=40, padx=10, side=constants.LEFT)
-    
+
     def __add_income(self, description, amount, budget):
         budget_service.add_budget_income(description, amount, budget)
         self.__budget = budget_service.get_budget(self.__budget.budget_id)
@@ -120,5 +122,3 @@ class BudgetView:
             budget_service.delete_budget_expense(id)
         self.__budget = budget_service.get_budget(self.__budget.budget_id)
         self.__initialize()
-
-    

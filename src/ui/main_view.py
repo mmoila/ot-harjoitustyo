@@ -2,6 +2,7 @@ from tkinter import Tk, constants, ttk
 from ui.budget_view import BudgetView
 from services.budget_service import budget_service
 
+
 class MainView:
     def __init__(self, root):
         self.__root = root
@@ -10,17 +11,15 @@ class MainView:
         self.__budgets = None
 
         self.__initialize_tabs()
-        
 
     def __initialize_tabs(self):
         self.__create_top_view()
         self.__create_middle_view()
-        
 
     def __clear_views(self):
         self.__top_view.destroy()
         self.__middle_view.destroy()
-        
+
     def __create_middle_view(self):
         self.__middle_view = ttk.Notebook(self.__root)
         self.__budgets = [b for b in budget_service.get_all_budgets()]
@@ -35,7 +34,8 @@ class MainView:
 
     def __create_top_view(self):
         self.__top_view = ttk.Frame(self.__root)
-        new_budget_label = ttk.Label(master=self.__top_view, text="Add new budget:")
+        new_budget_label = ttk.Label(
+            master=self.__top_view, text="Add new budget:")
         budget_name = ttk.Entry(master=self.__top_view)
         button = ttk.Button(master=self.__top_view, text="Create budget",
                             command=lambda: self.__add_new_budget(budget_name.get()))
@@ -50,4 +50,3 @@ class MainView:
             budget_service.create_budget(name)
             self.__clear_views()
             self.__initialize_tabs()
-      

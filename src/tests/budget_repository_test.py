@@ -2,6 +2,7 @@ import unittest
 from repositories.budget_repository import budget_repository
 from entities.budget import Budget
 
+
 class TestBudgetRepository(unittest.TestCase):
     def setUp(self):
         self.budget1 = Budget("budget1")

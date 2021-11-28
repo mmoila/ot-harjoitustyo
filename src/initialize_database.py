@@ -1,5 +1,6 @@
 from database_connection import get_database_connection
 
+
 def drop_tables(connection):
     cursor = connection.cursor()
     tables = ["cash_flow", "users", "budgets"]
@@ -41,7 +42,7 @@ def initialize_database():
     connection = get_database_connection()
     drop_tables(connection)
     create_tables(connection)
-   
+
 
 def insert_test_budgets(connection):
     cursor = connection.cursor()
@@ -53,6 +54,7 @@ def insert_test_budgets(connection):
 
     """)
     connection.commit()
+
 
 def insert_test_cash_flow(connection):
     cursor = connection.cursor()
@@ -68,4 +70,3 @@ def insert_test_cash_flow(connection):
 
 if __name__ == "__main__":
     initialize_database()
-   
