@@ -2,5 +2,5 @@
 
 ## Pakkauskaavio
 
-![Pakkausrakenne](./dokumentaatio/arkkitehtuuri.png)
+![Pakkausrakenne](./arkkitehtuuri.png)
 
