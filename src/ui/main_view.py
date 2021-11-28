@@ -1,4 +1,4 @@
-from tkinter import Tk, constants, ttk
+from tkinter import constants, ttk
 from ui.budget_view import BudgetView
 from services.budget_service import budget_service
 
@@ -22,7 +22,7 @@ class MainView:
 
     def __create_middle_view(self):
         self.__middle_view = ttk.Notebook(self.__root)
-        self.__budgets = [b for b in budget_service.get_all_budgets()]
+        self.__budgets = list(budget_service.get_all_budgets())
         for budget in self.__budgets:
             self.__create_tab(budget)
         self.__middle_view.pack(fill=constants.BOTH, pady=(20, 0), padx=10)
@@ -30,7 +30,7 @@ class MainView:
     def __create_tab(self, budget):
         new_tab = ttk.Frame(self.__middle_view)
         self.__middle_view.add(new_tab, text=budget.name)
-        BudgetView(self.__root, new_tab, budget)
+        BudgetView(new_tab, budget)
 
     def __create_top_view(self):
         self.__top_view = ttk.Frame(self.__root)

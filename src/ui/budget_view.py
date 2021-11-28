@@ -1,11 +1,9 @@
-from tkinter import Tk, constants
-from tkinter import ttk
+from tkinter import ttk, constants
 from services.budget_service import budget_service
 
 
 class BudgetView:
-    def __init__(self, root, tab, budget):
-        self.__root = root
+    def __init__(self, tab, budget):
         self.__tab = tab
         self.__frame = None
         self.__budget = budget
@@ -106,8 +104,8 @@ class BudgetView:
         for row in rows:
             values = self.__income_tree.item(row)["values"]
             ids.append(values[0])
-        for id in ids:
-            budget_service.delete_budget_income(id)
+        for budget_id in ids:
+            budget_service.delete_budget_income(budget_id)
         self.__budget = budget_service.get_budget(self.__budget.budget_id)
         self.__initialize()
 
@@ -118,7 +116,7 @@ class BudgetView:
             values = self.__expense_tree.item(row)["values"]
             print(values)
             ids.append(values[0])
-        for id in ids:
-            budget_service.delete_budget_expense(id)
+        for budget_id in ids:
+            budget_service.delete_budget_expense(budget_id)
         self.__budget = budget_service.get_budget(self.__budget.budget_id)
         self.__initialize()

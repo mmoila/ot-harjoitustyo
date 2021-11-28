@@ -27,10 +27,10 @@ class BudgetRepository:
             budget.expenses = self.get_expenses(budget.budget_id)
         return budgets
 
-    def get_budget(self, id):
+    def get_budget(self, id_):
         sql = "SELECT id, name, user_id FROM budgets WHERE id=:id"
         cursor = self.conn.cursor()
-        cursor.execute(sql, {"id": id})
+        cursor.execute(sql, {"id": id_})
         row = cursor.fetchone()
         budget = Budget(row["name"], row["id"])
         budget.income = self.get_income(budget.budget_id)
@@ -38,14 +38,16 @@ class BudgetRepository:
         return budget
 
     def get_income(self, budget_id):
-        sql = "SELECT id, description, count from cash_flow WHERE budget_id =:budget_id AND is_income = 1;"
+        sql = "SELECT id, description, count from cash_flow\
+            WHERE budget_id =:budget_id AND is_income = 1;"
         cursor = self.conn.cursor()
         cursor.execute(sql, {"budget_id": budget_id})
         data = cursor.fetchall()
         return [(d[0], d[1], d[2]) for d in data]
 
     def get_expenses(self, budget_id):
-        sql = "SELECT id, description, count FROM cash_flow WHERE budget_id =:budget_id AND is_income = 0;"
+        sql = "SELECT id, description, count FROM cash_flow\
+            WHERE budget_id =:budget_id AND is_income = 0;"
         cursor = self.conn.cursor()
         cursor.execute(sql, {"budget_id": budget_id})
         data = cursor.fetchall()
@@ -67,10 +69,10 @@ class BudgetRepository:
                        "count": count, "budget_id": budget_id})
         self.conn.commit()
 
-    def delete_cash_flow(self, id, is_income):
+    def delete_cash_flow(self, id_, is_income):
         sql = "DELETE FROM cash_flow WHERE id=:id AND is_income =:is_income;"
         cursor = self.conn.cursor()
-        cursor.execute(sql, {"id": id, "is_income": is_income})
+        cursor.execute(sql, {"id": id_, "is_income": is_income})
         self.conn.commit()
 
 

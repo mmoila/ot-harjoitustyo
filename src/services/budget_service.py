@@ -17,8 +17,8 @@ class BudgetService:
         budgets = self.__budget_repository.get_all_budgets()
         return budgets
 
-    def get_budget(self, id):
-        budget = self.__budget_repository.get_budget(id)
+    def get_budget(self, id_):
+        budget = self.__budget_repository.get_budget(id_)
         return budget
 
     def get_budget_income(self, budget):
@@ -35,11 +35,11 @@ class BudgetService:
         self.__budget_repository.add_expense(
             description, count, budget.budget_id)
 
-    def delete_budget_income(self, id, is_income=1):
-        self.__budget_repository.delete_cash_flow(id, is_income)
+    def delete_budget_income(self, id_, is_income=1):
+        self.__budget_repository.delete_cash_flow(id_, is_income)
 
-    def delete_budget_expense(self, id, is_income=0):
-        self.__budget_repository.delete_cash_flow(id, is_income)
+    def delete_budget_expense(self, id_, is_income=0):
+        self.__budget_repository.delete_cash_flow(id_, is_income)
 
 
 budget_service = BudgetService()

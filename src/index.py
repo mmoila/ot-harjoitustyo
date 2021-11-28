@@ -6,8 +6,8 @@ def main():
     window = Tk()
     window.minsize(height=800, width=450)
     window.title("Budgeting app")
-    ui = UI(window)
-    ui.start()
+    user_interface = UI(window)
+    user_interface.start()
 
     window.mainloop()
 

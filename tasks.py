@@ -11,3 +11,11 @@ def build(ctx):
 @task
 def test(ctx):
     ctx.run("pytest src")
+
+@task
+def lint(ctx):
+    ctx.run("pylint src")
+
+@task
+def autopep(ctx):
+    ctx.run("autopep8 --in-place --recursive src")
