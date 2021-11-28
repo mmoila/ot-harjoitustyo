@@ -1,4 +1,4 @@
-
+# Tuntikirjanpito
 
 | Päivä | Aika   | Mitä tein                   |
 | :---- | :----: | :-------------------------- |
@@ -7,3 +7,5 @@
 | 21.11 | 4h     | Budget servicen, budget repositoryn ja käyttöliitymän alustava luonti       |
 | 23.11 | 4h     | Ensimmäisen toimivan version koostaminen |
 |       | 2h     | Ensimmäisen testien tekeminen ja coverage reportin luominen |
+
+Yhteensä 14h
