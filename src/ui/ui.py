@@ -11,4 +11,7 @@ class UI:
         
     def __show_main_view(self):
         self.__current_view = MainView(self.__root)
+        for i in range(3):
+            self.__root.columnconfigure(i, weight=1, minsize=50)
+            self.__root.rowconfigure(i, weight=1, minsize=50)
        

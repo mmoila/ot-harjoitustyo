@@ -25,33 +25,48 @@ class BudgetRepository:
             budget.expenses = self.get_expenses(budget.budget_id)
         return budgets
 
+    def get_budget(self, id):
+        sql = "SELECT id, name, user_id FROM budgets WHERE id=:id"
+        cursor = self.conn.cursor()
+        cursor.execute(sql, {"id": id})
+        row = cursor.fetchone()
+        budget = Budget(row["name"], row["id"])
+        budget.income = self.get_income(budget.budget_id)
+        budget.expenses = self.get_expenses(budget.budget_id)
+        return budget
 
     def get_income(self, budget_id):
-        sql = "SELECT count from cash_flow WHERE budget_id =:budget_id AND is_income = 1;"
+        sql = "SELECT id, description, count from cash_flow WHERE budget_id =:budget_id AND is_income = 1;"
         cursor = self.conn.cursor()
         cursor.execute(sql, {"budget_id": budget_id})
         data = cursor.fetchall()
-        return [d[0] for d in data]
+        return [(d[0], d[1], d[2]) for d in data]
 
     def get_expenses(self, budget_id):
-        sql = "SELECT count FROM cash_flow WHERE budget_id =:budget_id AND is_income = 0;"
+        sql = "SELECT id, description, count FROM cash_flow WHERE budget_id =:budget_id AND is_income = 0;"
         cursor = self.conn.cursor()
         cursor.execute(sql, {"budget_id": budget_id})
         data = cursor.fetchall()
-        return [d[0] for d in data]
+        return [(d[0], d[1], d[2]) for d in data]
 
-    def add_income(self, count, budget_id):
-        sql = "INSERT INTO cash_flow (count, is_income_ budget_id)\
-            VALUES (:count, 1, :budget_id);"
+    def add_income(self, description, count, budget_id):
+        sql = "INSERT INTO cash_flow (description, count, is_income, budget_id)\
+            VALUES (:description, :count, 1, :budget_id);"
         cursor = self.conn.cursor()
-        cursor.execute(sql, {"count": count, "budget_id": budget_id})
+        cursor.execute(sql, {"description": description, "count": count, "budget_id": budget_id})
         self.conn.commit()
 
-    def add_expense(self, count, budget_id):
-        sql = "INSERT INTO cash_flow (count, is_income_ budget_id)\
-            VALUES (:count, 0, :budget_id);"
+    def add_expense(self, description, count, budget_id):
+        sql = "INSERT INTO cash_flow (description, count, is_income, budget_id)\
+            VALUES (:description, :count, 0, :budget_id);"
         cursor = self.conn.cursor()
-        cursor.execute(sql, {"count": count, "budget_id": budget_id})
+        cursor.execute(sql, {"description": description, "count": count, "budget_id": budget_id})
+        self.conn.commit()
+
+    def delete_cash_flow(self, id, is_income):
+        sql = "DELETE FROM cash_flow WHERE id=:id AND is_income =:is_income;"
+        cursor = self.conn.cursor()
+        cursor.execute(sql, {"id": id, "is_income": is_income})
         self.conn.commit()
 
 

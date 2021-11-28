@@ -27,6 +27,7 @@ def create_tables(connection):
 
         CREATE TABLE cash_flow (
             id INTEGER PRIMARY KEY,
+            description TEXT,
             count INTEGER,
             is_income INTEGER,
             budget_id INTEGER REFERENCES budgets

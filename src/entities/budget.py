@@ -8,4 +8,7 @@ class Budget:
         
 
     def get_balance(self):
-        return (sum(self.income) - sum(self.expenses))
+        income_sum = sum([income[2] for income in self.income])
+        expenses_sum = sum([expense[2] for expense in self.expenses])
+        return income_sum - expenses_sum
+
