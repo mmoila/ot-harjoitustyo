@@ -44,29 +44,5 @@ def initialize_database():
     create_tables(connection)
 
 
-def insert_test_budgets(connection):
-    cursor = connection.cursor()
-    cursor.executescript("""
-        INSERT INTO budgets (name, user_id) values ("test", 1);
-        INSERT INTO budgets (name, user_id) values ("test2", 2);
-        INSERT INTO budgets (name, user_id) values ("test3", 3);
-        INSERT INTO budgets (name, user_id) values ("test4", 4);
-
-    """)
-    connection.commit()
-
-
-def insert_test_cash_flow(connection):
-    cursor = connection.cursor()
-    cursor.executescript("""
-        INSERT INTO cash_flow (count, is_income, budget_id) values (200, 1, 1);
-        INSERT INTO cash_flow (count, is_income, budget_id) values (300, 1, 2);
-        INSERT INTO cash_flow (count, is_income, budget_id) values (400, 1, 3);
-        INSERT INTO cash_flow (count, is_income, budget_id) values (500, 0, 4);
-
-    """)
-    connection.commit()
-
-
 if __name__ == "__main__":
     initialize_database()
