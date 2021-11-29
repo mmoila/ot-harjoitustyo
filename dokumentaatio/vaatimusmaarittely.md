@@ -21,10 +21,10 @@ Sovelluksen avulla käyttäjä voi seurata arjen tuloja ja menoja sekä suunnite
 
 ### Kirjautumisen jälkeen
 
-- Aukeaa uusi näkymä jossa on käyttäjän suunnittelema budjetti
-  - Näkymä on tyhjä jos käyttäjä ei ole vielä luonut budjettia ja sovellus tarjoaa painiketta, jolla voi avata uuden budjetin
-- Käyttäjä voi lisätä ja poistaa budjettiin menoja sekä tuloja
-- Sovellus näyttää käyttäjälle menojen ja tulojen erotuksen
+- Aukeaa uusi näkymä jossa on käyttäjän suunnittelemat budjetit [tehty]
+  - Näkymä on tyhjä jos käyttäjä ei ole vielä luonut budjettia ja sovellus tarjoaa painiketta, jolla voi avata uuden budjetin [tehty]
+- Käyttäjä voi lisätä ja poistaa budjettiin menoja sekä  [tehty]
+- Sovellus näyttää käyttäjälle menojen ja tulojen erotuksen [tehty]
 - Käyttäjä voi kirjautua ulos sovelluksesta
 
 ### Jatkokehitysmahdollisuuksia
