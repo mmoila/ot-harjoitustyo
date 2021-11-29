@@ -75,6 +75,12 @@ class BudgetRepository:
         cursor.execute(sql, {"id": id_, "is_income": is_income})
         self.conn.commit()
 
+    def delete_all(self):
+        sql = "DELETE FROM budgets, users, cash_flow;"
+        cursor = self.conn.cursor()
+        cursor.execute(sql)
+        self.conn.commit()
+
 
 budget_repository = BudgetRepository(get_database_connection())
 
