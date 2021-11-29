@@ -76,9 +76,11 @@ class BudgetRepository:
         self.conn.commit()
 
     def delete_all(self):
-        sql = "DELETE FROM budgets, users, cash_flow;"
+        sql = "DELETE FROM budgets;\
+               DELETE FROM users;\
+               DELETE FROM cash_flow;"
         cursor = self.conn.cursor()
-        cursor.execute(sql)
+        cursor.executescript(sql)
         self.conn.commit()
 
 
