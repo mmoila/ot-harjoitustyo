@@ -10,8 +10,10 @@
 | 27.11 | 4h     | Käyttöliittymän budjettinäkymän tekeminen |
 | 28.11 | 4h     | Koodin refaktorointia, pakkauskaavion lisääminen |
 | 29.11 | 1h     | Ohjelmiston testausta yliopiston palvelimella |
-| 29.11 | 2h     | Dokumentaation päivitystä, ympäristömuuttujien lisääminen |
-| 29.11 | 1h     | BudgetRepository testien tekemistä |
+|       | 2h     | Dokumentaation päivitystä, ympäristömuuttujien lisääminen |
+|       | 1h     | BudgetRepository testien tekemistä |
+| 30.11 | 1h     | BudgetRepository testien tekemistä |
+|       | 1h     | Dokumentaation päivitys    |
 
 
-Yhteensä 26h
+Yhteensä 28h
