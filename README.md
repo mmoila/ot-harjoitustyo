@@ -32,3 +32,33 @@ Poetryn pystyy asentamaan esimerkiksi linuxissa komennolla<br>
     poetry run invoke start
 ```
 
+## Muut komentorivillä suoritettavat toiminnot
+
+### Testien ajaminen
+
+```bash
+    poetry run invoke test
+```
+
+### Testikattavuusraportin luominen
+Komento luo projektin juurikansioon kansion htmlcov, joka sisältää index.html-tiedoston. 
+Tämän tiedoston avaamalla saa auki testikattavuusraportin
+
+```bash
+    poetry run invoke coverage-report
+```
+
+### Pylint tarkistuksen ajaminen
+Komento luo projektin juurihakemistossa olevan .pylintrc-tiedoston mukaisen koodin laaduntarkistuksen.
+
+```bash
+    poetry run invoke lint
+```
+
+### Autopep korjauksen ajaminen
+Komento ajaa koodille automaattisen korjauksen autopep8-kirjaston avulla.
+
+```bash
+    poetry run invoke autopep
+```
+
