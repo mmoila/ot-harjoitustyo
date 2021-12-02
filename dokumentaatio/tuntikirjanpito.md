@@ -14,6 +14,7 @@
 |       | 1h     | BudgetRepository testien tekemistä |
 | 30.11 | 1h     | BudgetRepository testien tekemistä |
 |       | 1h     | Dokumentaation päivitys    |
+| 2.12  | 2h     | BudgetService testien tekemistä |
+|       | 1h     | Käyttöliittymän päivitystä |
 
-
-Yhteensä 28h
+Yhteensä 31h
