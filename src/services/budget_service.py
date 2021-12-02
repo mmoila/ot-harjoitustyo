@@ -12,6 +12,7 @@ class BudgetService:
     def create_budget(self, name, user_id=None):
         budget = Budget(name, user_id)
         self.__budget_repository.create_budget(budget)
+        return budget
 
     def get_all_budgets(self):
         budgets = self.__budget_repository.get_all_budgets()
