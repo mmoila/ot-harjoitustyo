@@ -1,5 +1,12 @@
+from os import read
 from tkinter import ttk, constants
+from typing import Text
+from unittest.loader import makeSuite
 from services.budget_service import budget_service
+
+def add_placeholder(entry, txt):
+    entry.insert(0, txt)
+    entry.bind("<Button-1>", lambda *args: entry.delete(0, "end"))
 
 
 class BudgetView:
@@ -50,17 +57,19 @@ class BudgetView:
         label = ttk.Label(container, text="New income:")
         description = ttk.Entry(container)
         amount = ttk.Entry(container, width=10)
-        button = ttk.Button(container, text="Add new",
+        add_new_button = ttk.Button(container, text="Add new",
                             command=lambda: self.__add_income(description.get(),
                                                               amount.get(), self.__budget))
         delete_button = ttk.Button(container, text="Delete selection",
                                    command=lambda: self.__delete_income())
 
+        add_placeholder(description, "Description")
+        add_placeholder(amount, "Amount")
         container.pack(padx=5, pady=5)
         label.grid(row=0, column=0, padx=5)
         description.grid(row=0, column=1)
         amount.grid(row=0, column=2, padx=5)
-        button.grid(row=0, column=3)
+        add_new_button.grid(row=0, column=3)
         delete_button.grid(row=1, column=0, padx=5, pady=5)
 
     def __initialize_new_expense(self):
@@ -68,17 +77,19 @@ class BudgetView:
         label = ttk.Label(container, text="New expense:")
         description = ttk.Entry(container)
         amount = ttk.Entry(container, width=10)
-        button = ttk.Button(container, text="Add new",
+        add_new_button = ttk.Button(container, text="Add new",
                             command=lambda: self.__add_expense(description.get(),
                                                                amount.get(), self.__budget))
         delete_button = ttk.Button(container, text="Delete selection",
                                    command=lambda: self.__delete_expense())
 
+        add_placeholder(description, "Description")
+        add_placeholder(amount, "Amount")
         container.pack(padx=5, pady=5)
         label.grid(row=0, column=0, padx=5)
         description.grid(row=0, column=1)
         amount.grid(row=0, column=2, padx=5)
-        button.grid(row=0, column=3)
+        add_new_button.grid(row=0, column=3)
         delete_button.grid(row=1, column=0, padx=5, pady=5)
 
     def __initialize_budget_balance(self):
