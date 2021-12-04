@@ -79,6 +79,13 @@ class TestBudgetService(unittest.TestCase):
         self.assertEqual(budgets[1].budget_id, 2)
         self.assertEqual(budgets[1].name, "budget2")
 
+    def test_get_budget(self):
+        self.budget_service.create_budget("budget1")
+        budget = self.budget_service.get_budget(1)
+
+        self.assertEqual(budget.name, "budget1")
+        self.assertEqual(budget.budget_id, 1)
+
     def test_get_budget_income(self):
         budget = self.budget_service.create_budget("budget1")
         self.budget_service.add_budget_income("income", 100, budget)
@@ -91,11 +98,36 @@ class TestBudgetService(unittest.TestCase):
     def test_get_budget_expenses(self):
         budget = self.budget_service.create_budget("budget1")
         self.budget_service.add_budget_expense("expense", 100, budget)
-        income = self.budget_service.get_budget_expenses(budget)
+        expense = self.budget_service.get_budget_expenses(budget)
 
-        self.assertEqual(income[0][0], 1)
-        self.assertEqual(income[0][1], "expense")
-        self.assertEqual(income[0][2], 100)
+        self.assertEqual(expense[0][0], 1)
+        self.assertEqual(expense[0][1], "expense")
+        self.assertEqual(expense[0][2], 100)
+
+    def test_delete_budget_income(self):
+        budget = self.budget_service.create_budget("budget1")
+        self.budget_service.add_budget_income("income1", 100, budget)
+        self.budget_service.add_budget_income("income2", 200, budget)
+        self.budget_service.delete_budget_income(1)
+        income = self.budget_service.get_budget_income(budget)
+
+        self.assertEqual(income[0][0], 2)
+        self.assertEqual(income[0][1], "income2")
+        self.assertEqual(income[0][2], 200)
+
+
+    def test_delete_budget_expense(self):
+        budget = self.budget_service.create_budget("budget1")
+        self.budget_service.add_budget_expense("expense1", 100, budget)
+        self.budget_service.add_budget_expense("expense2", 200, budget)
+        self.budget_service.delete_budget_expense(1)
+        expense = self.budget_service.get_budget_expenses(budget)
+
+        self.assertEqual(expense[0][0], 2)
+        self.assertEqual(expense[0][1], "expense2")
+        self.assertEqual(expense[0][2], 200)
+        
+    
 
         
 
