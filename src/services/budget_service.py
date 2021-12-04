@@ -42,5 +42,8 @@ class BudgetService:
     def delete_budget_expense(self, id_, is_income=0):
         self.__budget_repository.delete_cash_flow(id_, is_income)
 
+    def delete_budget(self, budget):
+        self.__budget_repository.delete_budget(budget)
+
 
 budget_service = BudgetService()

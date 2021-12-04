@@ -31,7 +31,7 @@ def create_tables(connection):
             description TEXT,
             count INTEGER,
             is_income INTEGER,
-            budget_id INTEGER REFERENCES budgets
+            budget_id INTEGER REFERENCES budgets ON DELETE CASCADE
         )
 
     """)

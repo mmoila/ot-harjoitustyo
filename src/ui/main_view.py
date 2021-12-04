@@ -15,6 +15,7 @@ class MainView:
     def __initialize_tabs(self):
         self.__create_top_view()
         self.__create_middle_view()
+        self.__create_delete_budget_button()
 
     def __clear_views(self):
         self.__top_view.destroy()
@@ -37,16 +38,30 @@ class MainView:
         new_budget_label = ttk.Label(
             master=self.__top_view, text="Add new budget:")
         budget_name = ttk.Entry(master=self.__top_view)
-        button = ttk.Button(master=self.__top_view, text="Create budget",
+        create_budget_button = ttk.Button(master=self.__top_view, text="Create budget",
                             command=lambda: self.__add_new_budget(budget_name.get()))
 
-        self.__top_view.pack(fill=constants.BOTH, pady=10, padx=10)
+        self.__top_view.pack(expand=1, pady=10, padx=10, anchor=constants.N)
         new_budget_label.grid(row=0, column=0, padx=5, pady=(0, 5))
         budget_name.grid(row=0, column=1, pady=(0, 5))
-        button.grid(row=0, column=2, padx=5, pady=(0, 5))
+        create_budget_button.grid(row=0, column=2, padx=5, pady=(0, 5), sticky=constants.E)
+
+    def __create_delete_budget_button(self):
+        if self.__budgets:
+            delete_button = ttk.Button(self.__top_view, text="Delete budget",
+                                    command=lambda: self.__delete_budget())
+            delete_button.grid(row=1, column=2, padx=5)
 
     def __add_new_budget(self, name):
         if name != "":
             budget_service.create_budget(name)
             self.__clear_views()
             self.__initialize_tabs()
+
+    def __delete_budget(self):
+        tab_num = self.__middle_view.index("current")
+        budget_service.delete_budget(self.__budgets[tab_num])
+        self.__clear_views()
+        self.__initialize_tabs()
+        
+        

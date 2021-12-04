@@ -1,7 +1,4 @@
-from os import read
 from tkinter import ttk, constants
-from typing import Text
-from unittest.loader import makeSuite
 from services.budget_service import budget_service
 
 def add_placeholder(entry, txt):
@@ -40,7 +37,7 @@ class BudgetView:
             self.__income_tree.insert("", "end", values=income)
 
         self.__income_tree["displaycolumns"] = ("Description", "Amount")
-        self.__income_tree.pack(fill=constants.X, pady=(25, 0))
+        self.__income_tree.pack(fill=constants.X, pady=(50, 0))
 
     def __initialize_expenses_list(self):
         self.__expense_tree = ttk.Treeview(
@@ -125,9 +122,9 @@ class BudgetView:
         rows = self.__expense_tree.selection()
         for row in rows:
             values = self.__expense_tree.item(row)["values"]
-            print(values)
             ids.append(values[0])
         for budget_id in ids:
             budget_service.delete_budget_expense(budget_id)
         self.__budget = budget_service.get_budget(self.__budget.budget_id)
         self.__initialize()
+        

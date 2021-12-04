@@ -16,6 +16,12 @@ class BudgetRepository:
         cursor.execute(sql, {"name": budget.name, "user_id": budget.user_id})
         self.conn.commit()
 
+    def delete_budget(self, budget):
+        sql = "DELETE FROM budgets WHERE id = :id"
+        cursor = self.conn.cursor()
+        cursor.execute(sql, {"id": budget.budget_id})
+        self.conn.commit()
+
     def get_all_budgets(self):
         sql = "SELECT id, name, user_id from budgets;"
         cursor = self.conn.cursor()
