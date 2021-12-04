@@ -16,5 +16,6 @@
 |       | 1h     | Dokumentaation päivitys    |
 | 2.12  | 2h     | BudgetService testien tekemistä |
 |       | 1h     | Käyttöliittymän päivitystä |
+| 4.12  | 2h     | Uusien toiminnallisuuksien lisääminen käyttöliittymään |
 
-Yhteensä 31h
+Yhteensä 33h
