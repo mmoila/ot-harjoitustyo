@@ -1,4 +1,5 @@
 from tkinter import constants, ttk
+from tkinter.messagebox import askyesno
 from ui.budget_view import BudgetView
 from services.budget_service import budget_service
 
@@ -59,9 +60,11 @@ class MainView:
             self.__initialize_tabs()
 
     def __delete_budget(self):
-        tab_num = self.__middle_view.index("current")
-        budget_service.delete_budget(self.__budgets[tab_num])
-        self.__clear_views()
-        self.__initialize_tabs()
-        
+        answer = askyesno("Delete budget", "Confirm permanently delete this budget?")
+        if answer:
+            tab_num = self.__middle_view.index("current")
+            budget_service.delete_budget(self.__budgets[tab_num])
+            self.__clear_views()
+            self.__initialize_tabs()
+            
         
