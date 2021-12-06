@@ -1,24 +1,29 @@
 import unittest
 from repositories.budget_repository import budget_repository
+from repositories.user_repository import user_repository
 from entities.budget import Budget
+from entities.user import User
 
 
 class TestBudgetRepository(unittest.TestCase):
     def setUp(self):
         budget_repository.delete_all()
-        self.budget1 = Budget("budget1")
-        self.budget2 = Budget("budget2")
+        user_repository.delete_all()
+        self.user = User(username="user1", password="test1234")
+        user_repository.create_user(self.user)
+        self.budget1 = Budget("budget1", user_id=1)
+        self.budget2 = Budget("budget2", user_id=1)
 
     def test_create_budget(self):
         budget_repository.create_budget(self.budget1)
-        budgets = budget_repository.get_all_budgets()
+        budgets = budget_repository.get_all_budgets(1)
 
         self.assertEqual(budgets[0].name, "budget1")
 
     def test_get_all_budgets(self):
         budget_repository.create_budget(self.budget1)
         budget_repository.create_budget(self.budget2)
-        budgets = budget_repository.get_all_budgets()
+        budgets = budget_repository.get_all_budgets(1)
 
         self.assertEqual(len(budgets), 2)
         self.assertEqual(budgets[0].budget_id, 1)
@@ -30,7 +35,7 @@ class TestBudgetRepository(unittest.TestCase):
 
         self.assertEqual(budget.budget_id, 1)
         self.assertEqual(budget.name, "budget1")
-        self.assertEqual(budget.user_id, None)
+        self.assertEqual(budget.user_id, 1)
 
     def test_add_income(self):
         budget_repository.create_budget(self.budget1)

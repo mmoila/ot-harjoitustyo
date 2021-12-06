@@ -19,7 +19,7 @@ class UserRepository:
         cursor.execute(sql, {"username": username})
         row = cursor.fetchone()
         if row and check_password_hash(row["password"], password):
-            return User(row["id"], row["username"], password)
+            return User(row["username"], password, row["id"])
 
     def check_user(self, username):
         sql = "SELECT 1 FROM users WHERE username=:username"
