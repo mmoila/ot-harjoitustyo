@@ -4,7 +4,7 @@ from ui.ui import UI
 
 def main():
     window = Tk()
-    window.minsize(height=800, width=450)
+    window.resizable(0, 0)
     window.title("Budgeting app")
     user_interface = UI(window)
     user_interface.start()

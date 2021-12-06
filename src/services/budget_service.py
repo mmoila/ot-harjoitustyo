@@ -2,20 +2,32 @@ from repositories.budget_repository import (
     budget_repository as default_budget_repository
 )
 
+from repositories.user_repository import (
+    user_repository as default_user_repository
+)
+
 from entities.budget import Budget
+from entities.user import User
 
 
 class BudgetService:
-    def __init__(self, budget_repository=default_budget_repository):
+    def __init__(self, budget_repository=default_budget_repository,
+                 user_repository = default_user_repository):
         self.__budget_repository = budget_repository
+        self.user_repository = user_repository
+        self.user = None
 
     def create_budget(self, name, user_id=None):
-        budget = Budget(name, user_id)
+        if not user_id:
+            user_id = self.user.id
+        budget = Budget(name, user_id=user_id)
         self.__budget_repository.create_budget(budget)
         return budget
 
-    def get_all_budgets(self):
-        budgets = self.__budget_repository.get_all_budgets()
+    def get_all_budgets(self, user_id=None):
+        if not user_id:
+            user_id = self.user.id
+        budgets = self.__budget_repository.get_all_budgets(user_id)
         return budgets
 
     def get_budget(self, id_):
@@ -44,6 +56,19 @@ class BudgetService:
 
     def delete_budget(self, budget):
         self.__budget_repository.delete_budget(budget)
+
+    def create_user(self, username, password):
+        user = User(username=username, password=password)
+        self.user_repository.create_user(user)
+
+    def get_user(self, username, password):
+        return self.user_repository.get_user(username, password)
+
+    def login(self, username, password):
+        self.user = self.get_user(username, password)
+        if self.user:
+            return True
+        return False
 
 
 budget_service = BudgetService()

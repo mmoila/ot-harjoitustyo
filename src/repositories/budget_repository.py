@@ -22,10 +22,10 @@ class BudgetRepository:
         cursor.execute(sql, {"id": budget.budget_id})
         self.conn.commit()
 
-    def get_all_budgets(self):
-        sql = "SELECT id, name, user_id from budgets;"
+    def get_all_budgets(self, user_id):
+        sql = "SELECT id, name, user_id from budgets WHERE user_id=:user_id;"
         cursor = self.conn.cursor()
-        cursor.execute(sql)
+        cursor.execute(sql, {"user_id": user_id})
         rows = cursor.fetchall()
         budgets = list(map(get_budgets_by_rows, rows))
         for budget in budgets:
@@ -38,7 +38,7 @@ class BudgetRepository:
         cursor = self.conn.cursor()
         cursor.execute(sql, {"id": id_})
         row = cursor.fetchone()
-        budget = Budget(row["name"], row["id"])
+        budget = Budget(row["name"], row["id"], row["user_id"])
         budget.income = self.get_income(budget.budget_id)
         budget.expenses = self.get_expenses(budget.budget_id)
         return budget
@@ -83,7 +83,6 @@ class BudgetRepository:
 
     def delete_all(self):
         sql = "DELETE FROM budgets;\
-               DELETE FROM users;\
                DELETE FROM cash_flow;"
         cursor = self.conn.cursor()
         cursor.executescript(sql)

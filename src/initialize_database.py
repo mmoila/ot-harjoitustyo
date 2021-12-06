@@ -14,16 +14,17 @@ def drop_tables(connection):
 def create_tables(connection):
     cursor = connection.cursor()
     cursor.executescript("""
-        CREATE TABLE budgets (
-            id INTEGER PRIMARY KEY,
-            name TEXT,
-            user_id INTEGER REFERENCES users
-        );
-        
+
         CREATE TABLE users (
             id INTEGER PRIMARY KEY,
             username TEXT UNIQUE,
             password TEXT
+        );
+
+        CREATE TABLE budgets (
+            id INTEGER PRIMARY KEY,
+            name TEXT,
+            user_id INTEGER REFERENCES users ON DELETE CASCADE
         );
 
         CREATE TABLE cash_flow (
