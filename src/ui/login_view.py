@@ -1,5 +1,6 @@
 from tkinter import ttk
-from tkinter.messagebox import showerror
+from tkinter.messagebox import showerror, showinfo
+from typing import Text
 from services.budget_service import budget_service
 
 class LoginView:
@@ -29,6 +30,7 @@ class LoginView:
         self.__initialize_username_field(self.__login_frame)
         self.__initialize_password_field(self.__login_frame)
         self.__initialize_login_button(self.__login_frame)
+        self.__initialize_create_user_button(self.__login_frame)
 
     def __initialize_username_field(self, master):
         username_label = ttk.Label(master, text="Username")
@@ -58,5 +60,19 @@ class LoginView:
             self.__initialize()
             self.pack()
 
-    def __initialize_create_user_button(self):
-        pass
+    def __create_user(self):
+        username = self.__username_entry.get()
+        password = self.__password_entry.get()
+        error = budget_service.create_user(username, password)
+        if error:
+            showerror(title="Login error", message=error)
+        else: 
+            showinfo(title="New user", message="New user created succesfully!")
+            self.__login_frame.destroy()
+            self.__initialize()
+            self.pack()
+
+    def __initialize_create_user_button(self, master):
+        create_user_button = ttk.Button(master, text="Create user", 
+                                        command=lambda: self.__create_user())
+        create_user_button.pack(pady=(25, 0))

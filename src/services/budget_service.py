@@ -58,7 +58,10 @@ class BudgetService:
         self.__budget_repository.delete_budget(budget)
 
     def create_user(self, username, password):
-        user = User(username=username, password=password)
+        try:
+            user = User(username=username, password=password)
+        except ValueError as error:
+            return error
         self.user_repository.create_user(user)
 
     def get_user(self, username, password):
