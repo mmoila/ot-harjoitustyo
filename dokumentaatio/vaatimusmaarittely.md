@@ -13,19 +13,19 @@ Sovelluksen avulla käyttäjä voi seurata arjen tuloja ja menoja sekä suunnite
 ### Ennen kirjautumista
 
 - [x] Käyttäjä näkee kirjautumisnäkymän johon voi syöttää käyttäjätunnuksen ja salasanan 
-  - Ohjelma ilmoittaa jos käyttäjänimi ja salasana eivät täsmää
-- Kirjautumisnäkymästä voi myös luoda uuden käyttäjän, jolloin aukeaa uusi näkymä [x]
-  - Uutta käyttäjätunnusta ei saa olla ennestään olemassa
-  - Käyttäjätunnus voi olla vähintään 4 ja enintään 20 merkkiä pitkä [x]
-  - Salasanan tulee olla vähintään 8 ja enintään 25 merkkiä pitkä [x]
+  - [x] Ohjelma ilmoittaa jos käyttäjänimi ja salasana eivät täsmää
+- [x] Kirjautumisnäkymästä voi myös luoda uuden käyttäjän, jolloin aukeaa uusi näkymä 
+  - [x] Uutta käyttäjätunnusta ei saa olla ennestään olemassa
+  - [x] Käyttäjätunnus voi olla vähintään 4 ja enintään 20 merkkiä pitkä 
+  - [x] Salasanan tulee olla vähintään 8 ja enintään 25 merkkiä pitkä 
 
 ### Kirjautumisen jälkeen
 
-- Aukeaa uusi näkymä jossa on käyttäjän suunnittelemat budjetit [x]
-  - Näkymä on tyhjä jos käyttäjä ei ole vielä luonut budjettia ja sovellus tarjoaa painiketta, jolla voi avata uuden budjetin [x]
-- Käyttäjä voi lisätä ja poistaa budjettiin menoja sekä  [x]
-- Sovellus näyttää käyttäjälle menojen ja tulojen erotuksen [x]
-- Käyttäjä voi kirjautua ulos sovelluksesta
+- [x] Aukeaa uusi näkymä jossa on käyttäjän suunnittelemat budjetit 
+  - [x] Näkymä on tyhjä jos käyttäjä ei ole vielä luonut budjettia ja sovellus tarjoaa painiketta, jolla voi avata uuden budjetin 
+- [x] Käyttäjä voi lisätä ja poistaa budjettiin menoja sekä  
+- [x] Sovellus näyttää käyttäjälle menojen ja tulojen erotuksen
+- [] Käyttäjä voi kirjautua ulos sovelluksesta
 
 ### Jatkokehitysmahdollisuuksia
 
