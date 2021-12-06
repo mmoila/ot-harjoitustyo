@@ -12,7 +12,7 @@ Sovelluksen avulla käyttäjä voi seurata arjen tuloja ja menoja sekä suunnite
 
 ### Ennen kirjautumista
 
-- Käyttäjä näkee kirjautumisnäkymän johon voi syöttää käyttäjätunnuksen ja salasanan [x]
+- Käyttäjä näkee kirjautumisnäkymän johon voi syöttää käyttäjätunnuksen ja salasanan -[x]
   - Ohjelma ilmoittaa jos käyttäjänimi ja salasana eivät täsmää
 - Kirjautumisnäkymästä voi myös luoda uuden käyttäjän, jolloin aukeaa uusi näkymä [x]
   - Uutta käyttäjätunnusta ei saa olla ennestään olemassa
