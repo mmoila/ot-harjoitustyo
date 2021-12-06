@@ -8,6 +8,7 @@ authors = ["Mikael Moilanen <mikael.moilanen@gmail.com>"]
 python = "^3.8"
 invoke = "^1.6.0"
 python-dotenv = "^0.19.2"
+Werkzeug = "^2.0.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
