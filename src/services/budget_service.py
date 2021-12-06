@@ -9,6 +9,9 @@ from repositories.user_repository import (
 from entities.budget import Budget
 from entities.user import User
 
+class UserNameExistsError(Exception):
+    pass
+
 
 class BudgetService:
     def __init__(self, budget_repository=default_budget_repository,
@@ -58,10 +61,9 @@ class BudgetService:
         self.__budget_repository.delete_budget(budget)
 
     def create_user(self, username, password):
-        try:
-            user = User(username=username, password=password)
-        except ValueError as error:
-            return error
+        if self.user_repository.check_user(username):
+            raise UserNameExistsError("Username already exists!") 
+        user = User(username=username, password=password)
         self.user_repository.create_user(user)
 
     def get_user(self, username, password):

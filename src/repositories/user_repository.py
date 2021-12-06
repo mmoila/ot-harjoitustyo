@@ -21,6 +21,15 @@ class UserRepository:
         if row and check_password_hash(row["password"], password):
             return User(row["id"], row["username"], password)
 
+    def check_user(self, username):
+        sql = "SELECT 1 FROM users WHERE username=:username"
+        cursor = self.conn.cursor()
+        cursor.execute(sql, {"username": username})
+        row = cursor.fetchone()
+        if row:
+            return True
+        return False
+
     def delete_all(self):
         sql = "DELETE FROM users"
         cursor = self.conn.cursor()

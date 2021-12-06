@@ -1,7 +1,7 @@
 from tkinter import ttk
 from tkinter.messagebox import showerror, showinfo
 from typing import Text
-from services.budget_service import budget_service
+from services.budget_service import budget_service, UserNameExistsError
 
 class LoginView:
     def __init__(self, root, login_success):
@@ -63,8 +63,11 @@ class LoginView:
     def __create_user(self):
         username = self.__username_entry.get()
         password = self.__password_entry.get()
-        error = budget_service.create_user(username, password)
-        if error:
+        try:
+            budget_service.create_user(username, password)
+        except ValueError as error:
+            showerror(title="Login error", message=error)
+        except UserNameExistsError as error:
             showerror(title="Login error", message=error)
         else: 
             showinfo(title="New user", message="New user created succesfully!")
