@@ -17,5 +17,8 @@
 | 2.12  | 2h     | BudgetService testien tekemistä |
 |       | 1h     | Käyttöliittymän päivitystä |
 | 4.12  | 2h     | Uusien toiminnallisuuksien lisääminen käyttöliittymään |
+| 5.12  | 5h     | Käyttäjien lisääminen sovellukseen |
+| 6.12  | 3h     | Testien päivitystä ja käyttäjiin liittyvien testien tekemistä |
+|       | 2h     | Koodin refaktorointia |
 
-Yhteensä 33h
+Yhteensä 43h
