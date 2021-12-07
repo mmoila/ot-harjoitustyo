@@ -20,5 +20,6 @@
 | 5.12  | 5h     | Käyttäjien lisääminen sovellukseen |
 | 6.12  | 3h     | Testien päivitystä ja käyttäjiin liittyvien testien tekemistä |
 |       | 2h     | Koodin refaktorointia |
+| 7.12  | 2h     | Pakkauskaavion päivitys ja sekvenssikaavion lisääminen |
 
-Yhteensä 43h
+Yhteensä 45h
