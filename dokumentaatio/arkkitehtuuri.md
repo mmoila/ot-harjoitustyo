@@ -1,8 +1,16 @@
 # Arkkitehtuurikuvaus
 
-## Pakkauskaavio
+## Pakkaus- ja luokkakaavio
 
-Pakkauskaavio kuvastaa sovelluksen tämänhetkistä tilaa eli siinä ei ole vielä mukana käyttäjienhallintaa.
+Pakkauskaavio kuvastaa sovelluksen suunniteltua tilaa. 
 
-![Pakkausrakenne](./arkkitehtuuri.png)
+![Pakkausrakenne](./pakkauskaavio.jpg)
 
+
+## Toiminnallisuudet
+
+### Käyttäjän kirjautuminen
+
+Alla olevassa sekvenssikaaviossa on kuvattu käyttäjän onnistunut sisäänkirjautuminen.
+
+![Login_sekvenssikaavio](./sekvenssikaavio.jpg)
