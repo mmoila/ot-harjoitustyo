@@ -1,4 +1,3 @@
-from os import access
 from ui.main_view import MainView
 from ui.login_view import LoginView
 

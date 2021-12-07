@@ -1,6 +1,5 @@
 from tkinter import ttk
 from tkinter.messagebox import showerror, showinfo
-from typing import Text
 from services.budget_service import budget_service, UserNameExistsError
 
 
