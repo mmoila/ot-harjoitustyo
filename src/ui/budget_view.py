@@ -1,6 +1,7 @@
 from tkinter import ttk, constants
 from services.budget_service import budget_service
 
+
 def add_placeholder(entry, txt):
     entry.insert(0, txt)
     entry.bind("<Button-1>", lambda *args: entry.delete(0, "end"))
@@ -55,8 +56,8 @@ class BudgetView:
         description = ttk.Entry(container)
         amount = ttk.Entry(container, width=10)
         add_new_button = ttk.Button(container, text="Add new",
-                            command=lambda: self.__add_income(description.get(),
-                                                              amount.get(), self.__budget))
+                                    command=lambda: self.__add_income(description.get(),
+                                                                      amount.get(), self.__budget))
         delete_button = ttk.Button(container, text="Delete selection",
                                    command=lambda: self.__delete_income())
 
@@ -75,8 +76,8 @@ class BudgetView:
         description = ttk.Entry(container)
         amount = ttk.Entry(container, width=10)
         add_new_button = ttk.Button(container, text="Add new",
-                            command=lambda: self.__add_expense(description.get(),
-                                                               amount.get(), self.__budget))
+                                    command=lambda: self.__add_expense(description.get(),
+                                                                       amount.get(), self.__budget))
         delete_button = ttk.Button(container, text="Delete selection",
                                    command=lambda: self.__delete_expense())
 
@@ -127,4 +128,3 @@ class BudgetView:
             budget_service.delete_budget_expense(budget_id)
         self.__budget = budget_service.get_budget(self.__budget.budget_id)
         self.__initialize()
-        

@@ -1,6 +1,7 @@
 import unittest
 from entities.user import User
 
+
 class TestUser(unittest.TestCase):
     def setUp(self):
         self.user1 = User("user1", "password123")
@@ -17,7 +18,7 @@ class TestUser(unittest.TestCase):
     def test_set_username(self):
         self.assertRaises(ValueError, self.set_usernames, "un")
         self.assertRaises(ValueError, self.set_usernames, 7 * "long")
-        
+
         self.set_usernames("user")
         self.assertEqual(self.user1.username, "user")
 
@@ -27,6 +28,3 @@ class TestUser(unittest.TestCase):
 
         self.set_passwords("ValidPassword")
         self.assertEqual(self.user1.password, "ValidPassword")
-        
-        
-       

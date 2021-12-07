@@ -3,6 +3,7 @@ from services.budget_service import BudgetService
 from entities.budget import Budget
 from entities.user import User
 
+
 class FakeBudgetRepository():
     def __init__(self):
         self.budgets = []
@@ -38,13 +39,13 @@ class FakeBudgetRepository():
             if budget.budget_id == budget_id:
                 self.cash_flow_id += 1
                 budget.income.append((self.cash_flow_id, description, count))
-                
+
     def add_expense(self, description, count, budget_id):
         for budget in self.budgets:
             if budget.budget_id == budget_id:
                 self.cash_flow_id += 1
                 budget.expenses.append((self.cash_flow_id, description, count))
-    
+
     def delete_cash_flow(self, id_, is_income):
         for budget in self.budgets:
             for i, income in enumerate(budget.income):
@@ -58,7 +59,7 @@ class FakeBudgetRepository():
     def delete_all(self):
         self.__init__()
 
-    
+
 class FakeUserRepository:
     def __init__(self):
         self.users = []
@@ -80,18 +81,16 @@ class FakeUserRepository:
             if user.username == username:
                 return True
         return False
-        
-        
+
     def delete_all(self):
         self.__init__()
 
-            
+
 class TestBudgetService(unittest.TestCase):
     def setUp(self):
         self.budget_service = BudgetService(FakeBudgetRepository(),
                                             FakeUserRepository())
-     
-        
+
     def test_create_budget(self):
         budget = self.budget_service.create_budget("budget1", 1)
 
@@ -148,7 +147,6 @@ class TestBudgetService(unittest.TestCase):
         self.assertEqual(income[0][1], "income2")
         self.assertEqual(income[0][2], 200)
 
-
     def test_delete_budget_expense(self):
         budget = self.budget_service.create_budget("budget1", 1)
         self.budget_service.add_budget_expense("expense1", 100, budget)
@@ -173,12 +171,3 @@ class TestBudgetService(unittest.TestCase):
 
         self.assertFalse(self.budget_service.login("user", "test1234"))
         self.assertTrue(self.budget_service.login("user1", "test1234"))
-        
-
-        
-    
-
-        
-
-        
-        

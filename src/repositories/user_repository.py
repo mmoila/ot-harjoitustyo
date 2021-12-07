@@ -2,6 +2,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from database_connection import get_database_connection
 from entities.user import User
 
+
 class UserRepository:
     def __init__(self, connection):
         self.conn = connection
@@ -10,7 +11,8 @@ class UserRepository:
         hash_value = generate_password_hash(user.password)
         sql = "INSERT INTO users (username, password) VALUES (:username, :password)"
         cursor = self.conn.cursor()
-        cursor.execute(sql, {"username": user.username, "password": hash_value})
+        cursor.execute(
+            sql, {"username": user.username, "password": hash_value})
         self.conn.commit()
 
     def get_user(self, username, password):
@@ -36,5 +38,5 @@ class UserRepository:
         cursor.execute(sql)
         self.conn.commit()
 
-        
+
 user_repository = UserRepository(get_database_connection())

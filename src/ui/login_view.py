@@ -3,6 +3,7 @@ from tkinter.messagebox import showerror, showinfo
 from typing import Text
 from services.budget_service import budget_service, UserNameExistsError
 
+
 class LoginView:
     def __init__(self, root, login_success):
         self.__root = root
@@ -55,7 +56,8 @@ class LoginView:
         if budget_service.login(username, password):
             self.__login_success()
         else:
-            showerror(title="Login error", message="Incorrect username or password")
+            showerror(title="Login error",
+                      message="Incorrect username or password")
             self.__login_frame.destroy()
             self.__initialize()
             self.pack()
@@ -69,13 +71,13 @@ class LoginView:
             showerror(title="Login error", message=error)
         except UserNameExistsError as error:
             showerror(title="Login error", message=error)
-        else: 
+        else:
             showinfo(title="New user", message="New user created succesfully!")
             self.__login_frame.destroy()
             self.__initialize()
             self.pack()
 
     def __initialize_create_user_button(self, master):
-        create_user_button = ttk.Button(master, text="Create user", 
+        create_user_button = ttk.Button(master, text="Create user",
                                         command=lambda: self.__create_user())
         create_user_button.pack(pady=(25, 0))

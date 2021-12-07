@@ -17,12 +17,9 @@ class User:
         if len(username) < 4 or len(username) > 20:
             raise ValueError("Username length must be between 4 and 20.")
         self.__username = username
-    
+
     @password.setter
     def password(self, password):
         if len(password) < 8 or len(password) > 25:
-            raise ValueError ("Password length must be between 8 and 25.")
+            raise ValueError("Password length must be between 8 and 25.")
         self.__password = password
-        
-
-   

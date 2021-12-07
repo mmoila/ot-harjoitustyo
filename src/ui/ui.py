@@ -22,4 +22,3 @@ class UI:
     def __show_login_view(self):
         self.__active_view = LoginView(self.__root, self.__show_main_view)
         self.__active_view.pack()
-

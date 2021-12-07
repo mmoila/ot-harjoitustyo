@@ -1,6 +1,7 @@
 import unittest
 from entities.budget import Budget
 
+
 class TestBudget(unittest.TestCase):
     def setUp(self):
         self.budget = Budget("test_budget", 1, 1)

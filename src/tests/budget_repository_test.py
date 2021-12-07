@@ -65,7 +65,3 @@ class TestBudgetRepository(unittest.TestCase):
         self.assertEqual(expenses[0][0], 2)
         self.assertEqual(expenses[0][1], "expense2")
         self.assertEqual(expenses[0][2], 200)
-
-        
-
-    
