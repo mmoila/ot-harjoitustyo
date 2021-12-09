@@ -40,7 +40,7 @@ class LoginView:
 
     def __initialize_password_field(self, master):
         password_label = ttk.Label(master, text="Password")
-        self.__password_entry = ttk.Entry(master)
+        self.__password_entry = ttk.Entry(master, show="*")
         password_label.pack()
         self.__password_entry.pack(pady=10)
 
@@ -52,8 +52,9 @@ class LoginView:
     def __handle_login(self):
         username = self.__username_entry.get()
         password = self.__password_entry.get()
-        if budget_service.login(username, password):
-            self.__login_success()
+        user = budget_service.login(username, password)
+        if user:
+            self.__login_success(user)
         else:
             showerror(title="Login error",
                       message="Incorrect username or password")

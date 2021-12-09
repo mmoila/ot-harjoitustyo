@@ -1,30 +1,51 @@
-from tkinter import constants, ttk
+from tkinter import Button, Label, constants, ttk
 from tkinter.messagebox import askyesno
 from ui.budget_view import BudgetView
 from services.budget_service import budget_service
 
 
 class MainView:
-    def __init__(self, root):
+    def __init__(self, root, logout, user=None):
         self.__root = root
+        self.__style = None
+        self.__header = None
         self.__top_view = None
         self.__middle_view = None
+        self.__user = user
         self.__budgets = None
+        self.__logout = logout
 
         self.__initialize_tabs()
 
     def __initialize_tabs(self):
+        self.__configure_styles()
+        self.__create_header()
         self.__create_top_view()
         self.__create_middle_view()
         self.__create_delete_budget_button()
 
     def destroy(self):
+        self.__header.destroy()
         self.__top_view.destroy()
         self.__middle_view.destroy()
 
     def pack(self):
-        self.__top_view.pack(expand=1, pady=10, padx=10, anchor=constants.N)
+        self.__header.pack(fill=constants.BOTH)
+        self.__top_view.pack(expand=1, pady=20, padx=10, anchor=constants.N)
         self.__middle_view.pack(fill=constants.BOTH, pady=(20, 10), padx=10)
+
+    def __configure_styles(self):
+        self.__style = ttk.Style()
+        self.__style.configure("Header.TFrame", background="grey")
+
+    def __create_header(self):
+        self.__header = ttk.Frame(self.__root, style="Header.TFrame")
+        info_label = Label(self.__header, text=f"Signed in as {self.__user.username}")
+        logout_button = Button(self.__header, text="Logout", 
+                               command=lambda: self.__handle_logout())
+
+        info_label.pack(side=constants.LEFT, padx=10, pady=10)
+        logout_button.pack(side=constants.RIGHT, padx=10, pady=10)
 
     def __create_middle_view(self):
         self.__middle_view = ttk.Notebook(self.__root)
@@ -72,3 +93,7 @@ class MainView:
             self.destroy()
             self.__initialize_tabs()
             self.pack()
+
+    def __handle_logout(self):
+        self.destroy()
+        self.__logout()

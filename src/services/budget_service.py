@@ -77,7 +77,7 @@ class BudgetService:
     def login(self, username, password):
         self.user = self.get_user(username, password)
         if self.user:
-            return True
+            return self.user
         return False
 
 
