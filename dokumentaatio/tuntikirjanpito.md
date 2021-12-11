@@ -21,5 +21,6 @@
 | 6.12  | 3h     | Testien päivitystä ja käyttäjiin liittyvien testien tekemistä |
 |       | 2h     | Koodin refaktorointia |
 | 7.12  | 2h     | Pakkauskaavion päivitys ja sekvenssikaavion lisääminen |
+| 9.12  | 2h     | Uloskirjautumismahdollisuuden lisääminen ja koodin refaktorointia |
 
-Yhteensä 45h
+Yhteensä 47h
