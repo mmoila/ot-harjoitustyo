@@ -1,5 +1,5 @@
 class Budget:
-    """Luokka, joka kuvastaa äyttäjän yhtä budjettia.
+    """Luokka, jonka avulla hallinnoidaan yhtä käyttäjän budjettia.
 
     Attributes: 
         name = Budjetin nimi.

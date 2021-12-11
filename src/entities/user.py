@@ -44,7 +44,7 @@ class User:
     @username.setter
     def username(self, username):
         """Asettaa käyttäjälle käyttäjätunnuksen. Tarkistaa, että annettu
-        salasana vähintään neljä ja enintään 20 merkkiä pitkä.
+        salasana on oikean pituinen.
 
         Args:
             username: Käyttäjän käyttäjänimi.
@@ -61,7 +61,7 @@ class User:
     @password.setter
     def password(self, password):
         """Asettaa käyttäjälle salasanan. Tarkistaa, että annettu salasana 
-        on vähintään kahdeksan ja enintään 25 merkkiä pitkä.
+        on oikean pituinen.
 
         Args:
             password: Käyttäjän salasana.
