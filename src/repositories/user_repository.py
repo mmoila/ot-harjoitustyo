@@ -7,14 +7,14 @@ class UserRepository:
     """Käyttäjätietojen tietokannasta vastaava luokka.
 
     Attributes:
-        conn = Tietokantaa kuvaava Connection-olio
+        conn = Tietokantaa kuvaava Connection-olio.
     """
 
     def __init__(self, connection):
         """Luokan konstruktori, joka alustaa yhteyden tietokantaan.
 
         Args:
-            connection: Tietokantaa kuvaava Connection-olio
+            connection: Tietokantaa kuvaava Connection-olio.
         """
 
         self.conn = connection
