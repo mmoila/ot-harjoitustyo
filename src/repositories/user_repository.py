@@ -50,6 +50,7 @@ class UserRepository:
         row = cursor.fetchone()
         if row and check_password_hash(row["password"], password):
             return User(row["username"], password, row["id"])
+        return None
 
     def check_user(self, username):
         """Tarkastaa löytyykö tietokannasta annetulla käyttäjänimella käyttäjää.
