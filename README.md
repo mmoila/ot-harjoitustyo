@@ -5,7 +5,7 @@ Yhdellä käyttäjällä voi olla useampia itse nimeämiään budjetteja.
 
 ## Dokumentaatio
 [Sovelluksen viimeisimmän version release](https://github.com/mmoila/ot-harjoitustyo/releases/tag/viikko5)<br>
-
+[Käyttöohje](https://github.com/mmoila/ot-harjoitustyo/tree/master/dokumentaatio/kayttoohje.md)<br>
 [Vaatimusmäärittely](https://github.com/mmoila/ot-harjoitustyo/tree/master/dokumentaatio/vaatimusmaarittely.md)<br>
 [Tuntikirjanpito](https://github.com/mmoila/ot-harjoitustyo/tree/master/dokumentaatio/tuntikirjanpito.md)<br>
 [Arkkitehtuurikuvaus](https://github.com/mmoila/ot-harjoitustyo/tree/master/dokumentaatio/arkkitehtuuri.md)

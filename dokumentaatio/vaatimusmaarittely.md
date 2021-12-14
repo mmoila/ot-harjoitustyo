@@ -23,7 +23,7 @@ Sovelluksen avulla käyttäjä voi seurata arjen tuloja ja menoja sekä suunnite
 
 - [x] Aukeaa uusi näkymä jossa on käyttäjän suunnittelemat budjetit 
   - [x] Näkymä on tyhjä jos käyttäjä ei ole vielä luonut budjettia ja sovellus tarjoaa painiketta, jolla voi avata uuden budjetin 
-- [x] Käyttäjä voi lisätä ja poistaa budjettiin menoja sekä  
+- [x] Käyttäjä voi lisätä ja poistaa budjettiin menoja sekä tuloja
 - [x] Sovellus näyttää käyttäjälle menojen ja tulojen erotuksen
 - [x] Käyttäjä voi kirjautua ulos sovelluksesta
 

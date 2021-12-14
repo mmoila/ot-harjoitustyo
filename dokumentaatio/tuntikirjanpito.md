@@ -22,5 +22,9 @@
 |       | 2h     | Koodin refaktorointia |
 | 7.12  | 2h     | Pakkauskaavion päivitys ja sekvenssikaavion lisääminen |
 | 9.12  | 2h     | Uloskirjautumismahdollisuuden lisääminen ja koodin refaktorointia |
+| 11.12 | 2h     | Docstring dokumentaation tekemistä |
+| 12.12 | 1h     | Docstring dokumentaation tekemistä |
+| 14.12 | 0,5 h  | Docstring dokumentaation tekemistä |
+|       |        |                                        |
 
-Yhteensä 47h
+Yhteensä 50,5h
