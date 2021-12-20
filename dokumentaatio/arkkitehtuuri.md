@@ -20,7 +20,7 @@ Sovelluslogiikasta vastaa yksi luokka BudgetService, joka käyttää repositorie
 
 ## Tietojen pysyväistallennus
 
-Tietojen pysyväistallennuksesta vastaavat repositories-pakkauksen luokat BudgetRepository ja UserRepository. Luokat tallentavat käyttäjiin ja budjetteihin liittyviä tietoja SQLite-tietokantaan. Tietokanta tauluineen alustetaan ennen sovelluksen ensimmäistä käynnistyskertaa käyttöohjeissa kuvatulla tavalla. Alustus tapahtuu ![initialize_database.py](../src/initialize_database.py) avulla. 
+Tietojen pysyväistallennuksesta vastaavat repositories-pakkauksen luokat BudgetRepository ja UserRepository. Luokat tallentavat käyttäjiin ja budjetteihin liittyviä tietoja SQLite-tietokantaan. Tietokanta tauluineen alustetaan ennen sovelluksen ensimmäistä käynnistyskertaa käyttöohjeissa kuvatulla tavalla. Alustus tapahtuu [initialize_database.py](../src/initialize_database.py) avulla. 
 
 
 ## Toiminnallisuudet
