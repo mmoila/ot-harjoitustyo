@@ -26,5 +26,7 @@
 | 12.12 | 1h     | Docstring dokumentaation tekemistä |
 | 14.12 | 0,5h   | Docstring dokumentaation tekemistä |
 |       | 0,5h   | Käyttöohjeen tekeminen                  |
+| 19.12 | 2h     | Sekvenssikaavioiden piirtämistä |
+
 
 Yhteensä 51h
