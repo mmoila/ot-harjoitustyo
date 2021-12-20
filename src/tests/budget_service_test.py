@@ -1,7 +1,5 @@
 import unittest
 from services.budget_service import BudgetService
-from entities.budget import Budget
-from entities.user import User
 
 
 class FakeBudgetRepository():
@@ -23,16 +21,19 @@ class FakeBudgetRepository():
         for budget in self.budgets:
             if budget.budget_id == id_:
                 return budget
+        return None
 
     def get_income(self, budget_id):
         for budget in self.budgets:
             if budget.budget_id == budget_id:
                 return budget.income
+        return None
 
     def get_expenses(self, budget_id):
         for budget in self.budgets:
             if budget.budget_id == budget_id:
                 return budget.expenses
+        return None
 
     def add_income(self, description, count, budget_id):
         for budget in self.budgets:
@@ -46,7 +47,7 @@ class FakeBudgetRepository():
                 self.cash_flow_id += 1
                 budget.expenses.append((self.cash_flow_id, description, count))
 
-    def delete_cash_flow(self, id_, is_income):
+    def delete_cash_flow(self, id_, is_income=None):
         for budget in self.budgets:
             for i, income in enumerate(budget.income):
                 if income[0] == id_:
@@ -75,6 +76,7 @@ class FakeUserRepository:
             if user.username == username:
                 if user.password == password:
                     return user
+        return None
 
     def check_user(self, username):
         for user in self.users:

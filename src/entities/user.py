@@ -7,7 +7,7 @@ class User:
         password = Käyttäjän salasana.
     """
 
-    def __init__(self, username, password, id=None):
+    def __init__(self, username, password, id_=None):
         """Luokan konstruktori, joka luo uuden käyttäjän. Konstruktori
         hyödyntää luokan asetusmetodeja käyttäjänimen ja salasanan validoinnissa.
 
@@ -17,7 +17,7 @@ class User:
             id: Käyttäjän yksilöivä tunniste. Saa oletuksena arvon None.
         """
 
-        self.id = id
+        self.id = id_
         self.username = username
         self.password = password
 
@@ -60,7 +60,7 @@ class User:
 
     @password.setter
     def password(self, password):
-        """Asettaa käyttäjälle salasanan. Tarkistaa, että annettu salasana 
+        """Asettaa käyttäjälle salasanan. Tarkistaa, että annettu salasana
         on oikean pituinen.
 
         Args:

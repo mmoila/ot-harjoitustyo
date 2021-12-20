@@ -9,7 +9,7 @@ def get_budgets_by_rows(row):
 class BudgetRepository:
     """Budjettien tietokannan hallinnasta vastaava luokka.
 
-    Attributes: 
+    Attributes:
         conn = Tietokantaa kuvaava Connection-olio.
     """
 
@@ -23,7 +23,7 @@ class BudgetRepository:
         self.conn = connection
 
     def create_budget(self, budget):
-        """Luo tietokantaan uuden budjetin. 
+        """Luo tietokantaan uuden budjetin.
 
         Args:
             budget: Budget-olio.
@@ -53,7 +53,7 @@ class BudgetRepository:
             user_id: Käyttäjän yksilöivä tunniste.
 
         Returns:
-            Palauttaa listan käyttäjän budjeteista. Lista on tyhjä, jos yhtään 
+            Palauttaa listan käyttäjän budjeteista. Lista on tyhjä, jos yhtään
             budjettia ei löydy.
         """
 
@@ -74,7 +74,7 @@ class BudgetRepository:
             id_: Budjetin yksilöivä tunnus.
 
         Returns:
-            Palauttaa Budget-olion. Jos tietokannasta ei löydy budjettia, 
+            Palauttaa Budget-olion. Jos tietokannasta ei löydy budjettia,
             funktio palauttaa None.
         """
 
@@ -181,5 +181,4 @@ class BudgetRepository:
 
 budget_repository = BudgetRepository(get_database_connection())
 
-if __name__ == "__main__":
-    budget_repository.create("test", 1)
+

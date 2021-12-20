@@ -12,7 +12,8 @@ class UI:
 
     def __show_main_view(self, user):
         self.__active_view.destroy()
-        self.__active_view = MainView(self.__root, self.__show_login_view, user)
+        self.__active_view = MainView(
+            self.__root, self.__show_login_view, user)
         for i in range(3):
             self.__root.columnconfigure(i, weight=1, minsize=50)
             self.__root.rowconfigure(i, weight=1, minsize=50)

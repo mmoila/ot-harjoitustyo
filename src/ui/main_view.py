@@ -1,5 +1,5 @@
 from tkinter import Button, Label, constants, ttk
-from tkinter.messagebox import askyesno
+from tkinter.messagebox import askyesno, showerror
 from ui.budget_view import BudgetView
 from services.budget_service import budget_service
 
@@ -40,8 +40,9 @@ class MainView:
 
     def __create_header(self):
         self.__header = ttk.Frame(self.__root, style="Header.TFrame")
-        info_label = Label(self.__header, text=f"Signed in as {self.__user.username}")
-        logout_button = Button(self.__header, text="Logout", 
+        info_label = Label(
+            self.__header, text=f"Signed in as {self.__user.username}")
+        logout_button = Button(self.__header, text="Logout",
                                command=lambda: self.__handle_logout())
 
         info_label.pack(side=constants.LEFT, padx=10, pady=10)
@@ -78,11 +79,13 @@ class MainView:
             delete_button.grid(row=1, column=2, padx=5)
 
     def __add_new_budget(self, name):
-        if name != "":
-            budget_service.create_budget(name)
+        if budget_service.create_budget(name):
             self.destroy()
             self.__initialize_tabs()
             self.pack()
+        else:
+            showerror("Incorrect budget name",
+                      "Budget name length must be between 1 to 20 characters.")
 
     def __delete_budget(self):
         answer = askyesno(

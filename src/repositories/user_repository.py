@@ -41,7 +41,7 @@ class UserRepository:
             password: Käyttäjän salasana.
 
         Returns:
-            Jos käyttäjä löytyy tietokannasta, palauttaa User-olion. 
+            Jos käyttäjä löytyy tietokannasta, palauttaa User-olion.
         """
 
         sql = "SELECT id, username, password FROM users WHERE username=:username"

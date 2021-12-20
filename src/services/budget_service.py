@@ -16,6 +16,7 @@ class UserNameExistsError(Exception):
 
 class BudgetService:
     """Ohjelman sovelluslogiikasta vastaava luokka."""
+
     def __init__(self, budget_repository=default_budget_repository,
                  user_repository=default_user_repository):
         """Luokan konstruktori.
@@ -40,14 +41,17 @@ class BudgetService:
             user_id: Käyttäjän yksilöivä tunniste. Saa oletuksena arvon None.
 
         Returns:
-            Palauttaa Budget-olion.
+            Palauttaa Budget-olion, jos budjetin nimen pituus on sopiva.
+            Jos nimi on väärän pituinen, palauttaa False.
         """
 
         if not user_id:
             user_id = self.__user.id
-        budget = Budget(name, user_id=user_id)
-        self.__budget_repository.create_budget(budget)
-        return budget
+        if 0 < len(name) <= 20: 
+            budget = Budget(name, user_id=user_id)
+            self.__budget_repository.create_budget(budget)
+            return budget
+        return False
 
     def get_all_budgets(self, user_id=None):
         """Palauttaa käyttäjän kaikki budjetit.
@@ -71,7 +75,7 @@ class BudgetService:
             id_: Budjetin yksilöivä tunniste.
 
         Returns:
-            Palauttaa Budget-olion. 
+            Palauttaa Budget-olion.
         """
 
         budget = self.__budget_repository.get_budget(id_)
@@ -129,7 +133,7 @@ class BudgetService:
         """
 
         try:
-            count = float(count) 
+            count = float(count)
             self.__budget_repository.add_expense(
                 description, count, budget.budget_id)
         except ValueError:
@@ -140,7 +144,7 @@ class BudgetService:
 
         Args:
             id_: Tulon yksilöivä id.
-            is_income: Totuusarvo kokonaislukuna 1 (True) tai 0 (False). 
+            is_income: Totuusarvo kokonaislukuna 1 (True) tai 0 (False).
             Oletuksena arvo 1.
         """
 
@@ -151,7 +155,7 @@ class BudgetService:
 
         Args:
             id_: Menon yksilöivä id.
-            is_income: Totuusarvo kokonaislukuna 1 (True) tai 0 (False). 
+            is_income: Totuusarvo kokonaislukuna 1 (True) tai 0 (False).
             Oletuksena arvo 0.
         """
 
@@ -183,7 +187,7 @@ class BudgetService:
         self.__user_repository.create_user(user)
 
     def get_user(self, username, password):
-        """Hakee argumenttien mukaisen käyttäjän. 
+        """Hakee argumenttien mukaisen käyttäjän.
 
         Args:
             username: Käyttäjänimi.

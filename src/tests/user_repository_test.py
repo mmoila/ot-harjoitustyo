@@ -15,3 +15,14 @@ class TestUserRepository(unittest.TestCase):
 
         self.assertEqual(user.username, "user1")
         self.assertEqual(user.password, "test1234")
+
+    def test_get_nonexistent_user(self):
+        user = user_repository.get_user("Pekka", "test1234")
+
+        self.assertIsNone(user)
+
+    def test_check_user(self):
+        user_repository.create_user(self.user1)
+
+        self.assertTrue(user_repository.check_user("user1"))
+        self.assertFalse(user_repository.check_user("user2"))
