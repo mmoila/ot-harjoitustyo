@@ -9,6 +9,7 @@ Yhdellä käyttäjällä voi olla useampia itse nimeämiään budjetteja.
 [Vaatimusmäärittely](https://github.com/mmoila/ot-harjoitustyo/tree/master/dokumentaatio/vaatimusmaarittely.md)<br>
 [Tuntikirjanpito](https://github.com/mmoila/ot-harjoitustyo/tree/master/dokumentaatio/tuntikirjanpito.md)<br>
 [Arkkitehtuurikuvaus](https://github.com/mmoila/ot-harjoitustyo/tree/master/dokumentaatio/arkkitehtuuri.md)
+[Testausdokumentti](https://github.com/mmoila/ot-harjoitustyo/tree/master/dokumentaatio/testaus.md)
 
 ## Asennus
 
