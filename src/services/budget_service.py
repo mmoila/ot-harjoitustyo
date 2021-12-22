@@ -53,7 +53,7 @@ class BudgetService:
             return budget
         return False
 
-    def get_all_budgets(self, user_id=None):
+    def get_all_budgets(self):
         """Palauttaa käyttäjän kaikki budjetit.
 
         Args:
@@ -63,9 +63,7 @@ class BudgetService:
             Palauttaa Budget-olioista koostuvan listan.
         """
 
-        if not user_id:
-            user_id = self.__user.id
-        budgets = self.__budget_repository.get_all_budgets(user_id)
+        budgets = self.__budget_repository.get_all_budgets(self.__user.id)
         return budgets
 
     def get_budget(self, id_):
@@ -116,6 +114,8 @@ class BudgetService:
             budget: Budget-olio.
         """
 
+        if len(description) == 0 or len(description) > 20:
+                return None
         try:
             count = float(count)
             self.__budget_repository.add_income(
@@ -132,6 +132,8 @@ class BudgetService:
             budget: Budget-olio.
         """
 
+        if len(description) == 0 or len(description) > 20:
+                return None
         try:
             count = float(count)
             self.__budget_repository.add_expense(

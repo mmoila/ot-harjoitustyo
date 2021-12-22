@@ -41,7 +41,7 @@ class BudgetRepository:
             budget: Budget-olio.
         """
 
-        sql = "DELETE FROM budgets WHERE id = :id"
+        sql = "DELETE FROM budgets WHERE id=:id"
         cursor = self.conn.cursor()
         cursor.execute(sql, {"id": budget.budget_id})
         self.conn.commit()

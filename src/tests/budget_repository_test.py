@@ -20,6 +20,14 @@ class TestBudgetRepository(unittest.TestCase):
 
         self.assertEqual(budgets[0].name, "budget1")
 
+    def test_delete_budget(self):
+        budget_repository.create_budget(self.budget1)
+        budget = budget_repository.get_budget(1)
+        budget_repository.delete_budget(budget)
+        budget = budget_repository.get_budget(1)
+
+        self.assertIsNone(budget)
+
     def test_get_all_budgets(self):
         budget_repository.create_budget(self.budget1)
         budget_repository.create_budget(self.budget2)
