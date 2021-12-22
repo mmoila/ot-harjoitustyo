@@ -27,6 +27,8 @@
 | 14.12 | 0,5h   | Docstring dokumentaation tekemistä |
 |       | 0,5h   | Käyttöohjeen tekeminen                  |
 | 19.12 | 2h     | Sekvenssikaavioiden piirtämistä |
+| 20.12 | 3h     | Sekvenssikaavioiden piirtämistä ja arkkitehtuurikuvauksen kirjoittaminen |
+| 21.12 | 2h     | Testien tekeminen loppuun ja muutamien pienien korjausten tekemistä |
 
 
-Yhteensä 51h
+Yhteensä 56h

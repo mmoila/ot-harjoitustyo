@@ -31,3 +31,5 @@ Sovelluksen avulla käyttäjä voi seurata arjen tuloja ja menoja sekä suunnite
 
 - Käyttäjä voi luokitella tuloja ja menoja
   - Ohjelma näyttää luokitteluiden mukaisen jakauman graafisesti
+- Ylläpitäjän tuominen uutena käyttäjäroolina
+  - Ylläpitäjä voi poistaa muita käyttäjiä tai tehdä niistä ylläpitäjiä
